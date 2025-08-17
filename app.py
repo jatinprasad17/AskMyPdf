@@ -33,8 +33,8 @@ embeddings = HuggingFaceEmbeddings(
 
 
 # Streamlit UI
-st.title("Conversational RAG with PDF Uploads and Chat History")
-st.write("Upload PDFs and chat with their content 🚀")
+st.title("AskMyPDF")
+st.write("Upload PDFs and chat with their content !!")
 
 # Input Groq API Key
 api_key = st.text_input("Enter your Groq API key:", type="password")
@@ -133,3 +133,4 @@ if api_key:
 
 else:
     st.warning("Please enter your Groq API key")
+
