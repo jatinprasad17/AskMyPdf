@@ -18,9 +18,11 @@ from langchain.chains import create_retrieval_chain, create_history_aware_retrie
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
+
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2",
-    model_kwargs={"device": "cpu"}
+    model_kwargs={"device": "cpu"},
+    encode_kwargs={"normalize_embeddings": True}
 )
 
 # Streamlit UI
@@ -124,4 +126,5 @@ if api_key:
 
 else:
     st.warning("Please enter your Groq API key")
+
 
