@@ -18,12 +18,12 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from sentence_transformers import SentenceTransformer
 from langchain_huggingface import HuggingFaceEmbeddings
 
-from langchain_huggingface import HuggingFaceEmbeddings
+# Load sentence-transformers model safely
+st_model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 
-embeddings = HuggingFaceEmbeddings(
-    model_name="sentence-transformers/all-MiniLM-L6-v2",
-    model_kwargs={"device": "cpu"}  
-)
+# Wrap it into LangChain Embeddings
+embeddings = HuggingFaceEmbeddings(model=st_model)
+
 
 
 
@@ -129,5 +129,6 @@ if api_key:
 
 else:
     st.warning("Please enter your Groq API key")
+
 
 
