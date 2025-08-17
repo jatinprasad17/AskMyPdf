@@ -1,6 +1,6 @@
 import streamlit as st
-import os
 from dotenv import load_dotenv
+import os
 
 from langchain_groq import ChatGroq
 from langchain_community.vectorstores import Chroma
@@ -14,19 +14,10 @@ from langchain.chains import create_retrieval_chain, create_history_aware_retrie
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
-# Embeddings
-from sentence_transformers import SentenceTransformer
-from langchain_huggingface import HuggingFaceEmbeddings
-
-# Load sentence-transformers model safely
-st_model = SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
-
-# Wrap it into LangChain Embeddings
-embeddings = HuggingFaceEmbeddings(model=st_model)
-
-
-
-
+embeddings = HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2",
+    model_kwargs={"device": "cpu"}
+)
 
 # Streamlit UI
 st.title("AskMyPDF")
@@ -129,6 +120,3 @@ if api_key:
 
 else:
     st.warning("Please enter your Groq API key")
-
-
-
