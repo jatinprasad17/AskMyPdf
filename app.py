@@ -1,3 +1,7 @@
+__import__("pysqlite3")
+import sys
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+
 import streamlit as st
 from dotenv import load_dotenv
 import os
@@ -120,3 +124,4 @@ if api_key:
 
 else:
     st.warning("Please enter your Groq API key")
+
