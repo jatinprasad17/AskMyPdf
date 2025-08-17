@@ -14,10 +14,6 @@ from langchain.chains import create_retrieval_chain, create_history_aware_retrie
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
-# Load environment
-load_dotenv()
-os.environ['HF_TOKEN'] = os.getenv("HF_TOKEN")
-
 # Embeddings
 from sentence_transformers import SentenceTransformer
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -133,4 +129,5 @@ if api_key:
 
 else:
     st.warning("Please enter your Groq API key")
+
 
