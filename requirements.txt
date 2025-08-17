@@ -10,5 +10,17 @@ sentence-transformers
 pypdf
 python-dotenv
 numpy<2.0
+streamlit>=1.20.0
+langchain>=0.0.230
+chromadb==0.4.22
+transformers>=4.30.0
+sentence-transformers>=2.2.2
+pypdf>=3.8.0
+python-dotenv>=1.0.0
+langchain-groq>=0.1.0
+langchain-huggingface>=0.0.3
+torch>=2.2.0
+
+
 
 
